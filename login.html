@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CalmPath</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <h1 class="app-title">CalmPath</h1>
+    <div class="container">
+        <div class="main-image">
+            <img src="images/mental_health.jpeg" alt="Mental Health">
+            <h2>Mental Health</h2>
+        </div>
+        <div class="login-section">
+            <h1>Log In</h1>
+            <form id="loginForm">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Username" required aria-required="true">
+
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Password" required aria-required="true">
+                    <span id="eye-icon" onclick="togglePasswordVisibility('password')" class="fa fa-eye"></span>
+                </div>
+
+                <div class="remember-me">
+                    <input type="checkbox" id="remember" aria-label="Remember me">
+                    <label for="remember">Remember me</label>
+                </div>
+
+                <a href="#" class="forgot-password">Forget password?</a>
+
+                <button type="submit">Login</button>
+
+                <div class="sign-up">
+                    <p>Don't have an account? <a href="#" id="signUpLink">Sign Up!</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        window.onload = function () {
+            const form = document.querySelector('form');
+            form.style.opacity = 0;
+            setTimeout(() => {
+                form.style.opacity = 1;
+            }, 300);
+        };
+
+        document.getElementById('loginForm').onsubmit = function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === '1!Admin') {
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 500);
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        };
+
+        document.getElementById('signUpLink').onclick = function () {
+            setTimeout(() => {
+                window.location.href = 'signup.html';
+            }, 300);
+        };
+
+    </script>
+</body>
+
+</html>

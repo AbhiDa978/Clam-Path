@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calm Path - Therapist Matching</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="logo.png" alt="Calm Path Logo">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="therapist.html" class="active">Therapist Matching</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <!-- Intro Section -->
+        <div class="intro-section">
+            <h2>Welcome to Our Therapist Matching</h2>
+            <p>Our mission is to connect you with professional therapists who can help guide you through your mental health journey. Below is a list of therapists available for booking.</p>
+        </div>
+
+        <!-- Therapist Section -->
+        <div class="therapist-section">
+            <h2>Find Professional Help</h2>
+            <p>Browse our team of professional therapists to find the best match for you.</p>
+            <div class="therapist-list">
+                <div class="therapist-card" onclick="showProfile('Therapist 1')">
+                    <img src="images/therapist1.jpeg" alt="Therapist 1">
+                    <p>Therapist 1</p>
+                    <a href="#">View Profile</a>
+                </div>
+                <div class="therapist-card" onclick="showProfile('Therapist 2')">
+                    <img src="images/therapist2.jpeg" alt="Therapist 2">
+                    <p>Therapist 2</p>
+                    <a href="#">View Profile</a>
+                </div>
+                <div class="therapist-card" onclick="showProfile('Therapist 3')">
+                    <img src="images/therapist3.jpeg" alt="Therapist 3">
+                    <p>Therapist 3</p>
+                    <a href="#">View Profile</a>
+                </div>
+                <div class="therapist-card" onclick="showProfile('Therapist 4')">
+                    <img src="images/therapist4.jpeg" alt="Therapist 4">
+                    <p>Therapist 4</p>
+                    <a href="#">View Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointment Section -->
+        <div class="appointment-section">
+            <h2>Schedule a Counseling Session</h2>
+            <p>Ready to take the next step? Book a session with a therapist today! </p>
+        </br> 
+            <div class="appointment-form">
+                <button onclick="window.location.href='appointment.html'">Book Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Popup Overlay -->
+    <div id="popup-overlay" class="popup-overlay">
+        <div id="popup-content" class="popup-content">
+            <img id="therapist-img" src="" alt="Therapist Image">
+            <p id="therapist-info"></p>
+            <a id="chat-btn" class="chat-btn" href="chat.html">Chat with Therapist</a>
+            <button class="close-btn" onclick="closeProfile()">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <strong>Contact Info</strong><br>
+                Kathmandu, Nepal<br>
+                Phone: +977-1234567890<br>
+                Email: info@calmpath.com
+            </div>
+            <div>
+                <strong>Social Media Links</strong><br><br>
+                <a href="https://facebook.com" target="_blank">
+                    <img src="images/f.png" alt="Facebook" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://instagram.com" target="_blank">
+                    <img src="images/i.png" alt="Instagram" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://x.com" target="_blank">
+                    <img src="images/t.png" alt="Twitter" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://youtube.com" target="_blank">
+                    <img src="images/y.png" alt="YouTube" style="width: 30px; height: 30px;">
+                </a>
+            </div>
+            
+            <div>
+                <strong>Privacy Policy</strong><br><br>
+                &copy; 2024 Calm Path.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Therapist profile data
+        const therapists = {
+            'Therapist 1': {
+                img: 'images/therapist1.jpeg',
+                bio: 'Therapist 1 specializes in cognitive behavioral therapy with a focus on anxiety and stress management.'
+            },
+            'Therapist 2': {
+                img: 'images/therapist2.jpeg',
+                bio: 'Therapist 2 focuses on mindfulness practices and offers therapy for individuals dealing with depression.'
+            },
+            'Therapist 3': {
+                img: 'images/therapist3.jpeg',
+                bio: 'Therapist 3 has extensive experience in family counseling and conflict resolution.'
+            },
+            'Therapist 4': {
+                img: 'images/therapist4.jpeg',
+                bio: 'Therapist 4 provides trauma-informed care and specializes in helping clients process difficult life events.'
+            }
+        };
+
+        // Show profile popup
+        function showProfile(therapistName) {
+            const therapist = therapists[therapistName];
+            document.getElementById('therapist-img').src = therapist.img;
+            document.getElementById('therapist-info').textContent = therapist.bio;
+
+            const popupOverlay = document.getElementById('popup-overlay');
+            const popupContent = document.getElementById('popup-content');
+            const chatBtn = document.getElementById('chat-btn');
+
+            // Update chat button link
+            chatBtn.onclick = function() {
+                window.location.href = `chat.html?name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&info=${encodeURIComponent(info)}`;
+            };
+
+            // Smooth show transition
+            popupOverlay.classList.add('active');
+            setTimeout(() => {
+                popupContent.classList.add('active');
+            }, 100);
+        }
+
+        // Close profile popup
+        function closeProfile() {
+            const popupOverlay = document.getElementById('popup-overlay');
+            const popupContent = document.getElementById('popup-content');
+
+            // Smooth hide transition
+            popupContent.classList.remove('active');
+            setTimeout(() => {
+                popupOverlay.classList.remove('active');
+            }, 300);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,883 @@
+ /* Basic styles for the body */
+ body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #eef2f3;
+     color: #333;
+ }
+
+ /* Set box-sizing globally */
+ *,
+ *:before,
+ *:after {
+     box-sizing: border-box;
+ }
+
+ /* Header styles */
+ header {
+     background-color: #00BDD6;
+     padding: 10px 20px;
+     position: fixed;
+     width: 100%;
+     top: 0;
+     z-index: 1000;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     animation: fadeInSlideDown 0.8s ease-out;
+     overflow: hidden;
+ }
+
+ header img {
+     width: 50px;
+     height: 50px;
+ }
+
+ header nav {
+     display: flex;
+     flex-wrap: nowrap;
+ }
+
+ header nav a {
+     margin: 0 15px;
+     text-decoration: none;
+     color: white;
+     font-size: 1.1em;
+ }
+
+ header nav a:hover,
+ header nav a.active {
+     color: #ffeb3b;
+     text-decoration: underline;
+ }
+
+ /* Footer styles */
+ footer {
+     background-color: #00BDD6;
+     padding: 20px;
+     text-align: center;
+     color: white;
+     margin-top: 50px;
+ }
+
+ .footer-content {
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     gap: 10px;
+ }
+
+ .footer-content div {
+     flex: 1 1 30%;
+     min-width: 200px;
+ }
+
+ /* Main content boxy layout */
+ .content-section {
+     padding: 20px;
+     margin: 20px auto;
+     background-color: #fff;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     width: 80%;
+     text-align: center;
+     opacity: 0;
+     transform: translateY(20px);
+     transition: opacity 0.5s, transform 0.5s;
+ }
+
+ .content-section img {
+     max-width: 100%;
+     height: auto;
+     border-radius: 10px;
+     margin-top: 10px;
+ }
+
+ .banner {
+     background: #4c8bf5 url('banner.jpg') center/cover no-repeat;
+     color: #fff;
+     height: 300px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 2em;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+     margin-top: 60px;
+ }
+
+ .facts,
+ .services,
+ .success {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 20px;
+     justify-content: space-around;
+ }
+
+ .facts div,
+ .services div,
+ .success div {
+     background-color: #f7f9fc;
+     border-radius: 8px;
+     width: 30%;
+     padding: 15px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     text-align: left;
+ }
+
+ .facts div img,
+ .services div img,
+ .success div img {
+     width: 100%;
+     border-radius: 8px;
+     height: 150px;
+     object-fit: cover;
+ }
+
+ /* Animations */
+ @keyframes fadeInSlideDown {
+     0% {
+         opacity: 0;
+         transform: translateY(-20px);
+     }
+
+     100% {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ /* Footer content styling */
+ .footer-content {
+     display: flex;
+     justify-content: space-around;
+     flex-wrap: wrap;
+     gap: 10px;
+ }
+
+ .footer-content div {
+     width: 30%;
+ }
+
+ /* Spacer below banner */
+ .spacer {
+     height: 30px;
+ }
+
+ /* Back to Top Button */
+ .back-to-top {
+     position: fixed;
+     bottom: 20px;
+     right: 20px;
+     background-color: #4c8bf5;
+     color: white;
+     border: none;
+     padding: 10px;
+     border-radius: 5px;
+     cursor: pointer;
+     display: none;
+     transition: background-color 0.3s;
+ }
+
+ .back-to-top:hover {
+     background-color: #3a6cdb;
+ }
+
+
+ /* contactus Main Section */
+ .contact-container {
+     max-width: 1200px;
+     margin: 100px auto;
+     background-color: white;
+     padding: 20px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     border-radius: 10px;
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+ }
+
+ .contact-form,
+ .contact-details {
+     width: 48%;
+     margin-bottom: 20px;
+ }
+
+ .contact-form h2,
+ .contact-details h2 {
+     margin-bottom: 20px;
+ }
+
+ .contact-form form input,
+ .contact-form form textarea,
+ .contact-form form button {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 15px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+
+ .contact-form form button {
+     background-color: #4c8bf5;
+     color: white;
+     cursor: pointer;
+     border: none;
+     font-size: 16px;
+ }
+
+ .contact-form form button:hover {
+     background-color: #3a6cdb;
+ }
+
+ .contact-details p {
+     margin-bottom: 10px;
+ }
+
+ /* OpenStreetMap */
+ iframe {
+     width: 100%;
+     height: 300px;
+     border: none;
+     border-radius: 10px;
+     margin-top: 20px;
+ }
+
+
+ /*aboutus Main content styles */
+ .main-content {
+     margin: 0 auto;
+     margin-top: 100px;
+     padding: 20px;
+     width: 90%;
+     max-width: 1200px;
+     background-color: transparent;
+     text-align: center;
+ }
+
+ /* Slideshow styles */
+ .slideshow {
+     position: relative;
+     margin: 5px auto;
+     max-width: 1160px;
+     height: 300px;
+     overflow: hidden;
+     border-radius: 8px;
+ }
+
+ .slideshow img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     display: none;
+     opacity: 0;
+     transition: opacity 0.5s ease;
+ }
+
+ .slideshow img.active {
+     display: block;
+     opacity: 1;
+ }
+
+ .prev,
+ .next {
+     cursor: pointer;
+     position: absolute;
+     top: 50%;
+     padding: 16px;
+     color: white;
+     font-weight: bold;
+     font-size: 18px;
+     transition: 0.6s ease;
+     user-select: none;
+ }
+
+ .prev {
+     left: 0;
+     border-radius: 3px 0 0 3px;
+ }
+
+ .next {
+     right: 0;
+     border-radius: 0 3px 3px 0;
+ }
+
+ .prev:hover,
+ .next:hover {
+     background-color: rgba(0, 0, 0, 0.8);
+ }
+
+ /* About Us sections */
+ .mission,
+ .overview,
+ .team-section {
+     padding: 20px;
+     background-color: #f7f9fc;
+     margin: 20px auto;
+     border-radius: 8px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     width: 80%;
+ }
+
+ .team-section {
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+     gap: 20px;
+     padding: 20px;
+ }
+
+ .team-member {
+     text-align: center;
+     width: 20%;
+     background-color: #fff;
+     padding: 15px;
+     border-radius: 8px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+
+ .team-member img {
+     border-radius: 50%;
+     width: 100px;
+     height: 100px;
+     margin-bottom: 10px;
+ }
+
+ .team-member h3 {
+     margin: 5px 0;
+ }
+
+ /* Animations */
+ @keyframes fadeInSlideDown {
+     0% {
+         opacity: 0;
+         transform: translateY(-20px);
+     }
+
+     100% {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ /* Spacer */
+ .spacer {
+     height: 30px;
+ }
+
+
+ /* Chat section */
+ .chat-container {
+     margin: 120px auto 50px;
+     width: 90%;
+     max-width: 1000px;
+     background-color: #fff;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     padding: 20px;
+ }
+
+ .chat-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 20px;
+     padding-bottom: 10px;
+     border-bottom: 1px solid #ddd;
+ }
+
+ .chat-header img {
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     margin-right: 10px;
+ }
+
+ .chat-header h2 {
+     font-size: 1.5em;
+     margin: 0;
+     text-align: center;
+     flex-grow: 1;
+ }
+
+ .chat-header .status {
+     color: green;
+ }
+
+ .chat-header-icons {
+     display: flex;
+     gap: 10px;
+ }
+
+ .chat-header-icons a {
+     font-size: 1.2em;
+     text-decoration: none;
+     color: #333;
+     cursor: pointer;
+ }
+
+ .chat-messages {
+     height: 400px;
+     overflow-y: auto;
+     margin-bottom: 20px;
+     padding-right: 10px;
+ }
+
+ .chat-bubble {
+     padding: 10px 20px;
+     margin: 10px 0;
+     border-radius: 20px;
+     max-width: 80%;
+ }
+
+ .therapist-message {
+     background-color: #f1f0f0;
+     align-self: flex-start;
+     margin-left: 10px;
+ }
+
+ .user-message {
+     background-color: #4c8bf5;
+     color: white;
+     align-self: flex-end;
+     margin-right: 10px;
+ }
+
+ .chat-input-container {
+     display: flex;
+     gap: 10px;
+ }
+
+ .chat-input {
+     flex-grow: 1;
+     padding: 10px;
+     font-size: 1em;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+
+ .send-button {
+     background-color: #4c8bf5;
+     color: white;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ .send-button:hover {
+     background-color: #3a6cdb;
+ }
+
+ .more-therapists {
+     text-align: center;
+     margin-top: 20px;
+ }
+
+ .more-therapists a {
+     text-decoration: none;
+     color: #4c8bf5;
+     font-size: 1.1em;
+ }
+
+ .more-therapists a:hover {
+     text-decoration: underline;
+ }
+
+ .chat-messages {
+     display: flex;
+     flex-direction: column;
+ }
+
+ /* Popup overlay for call, video call, and info */
+ .popup-overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.5);
+     display: none;
+     justify-content: center;
+     align-items: center;
+     z-index: 1001;
+ }
+
+ .popup-content {
+     background-color: white;
+     padding: 20px;
+     border-radius: 10px;
+     text-align: center;
+     width: 300px;
+ }
+
+ .popup-content h3 {
+     margin-bottom: 15px;
+ }
+
+ .popup-content p {
+     margin-bottom: 20px;
+ }
+
+ .close-popup {
+     background-color: #4c8bf5;
+     color: white;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+
+
+ /* therapist Main content styles */
+ .main-content {
+     margin: 0 auto;
+     margin-top: 100px;
+     padding: 20px;
+     width: 90%;
+     max-width: 1200px;
+     background-color: #fff;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     text-align: center;
+ }
+
+ .intro-section {
+     margin-bottom: 40px;
+ }
+
+ .intro-section h2 {
+     font-size: 2em;
+     margin-bottom: 10px;
+ }
+
+ .intro-section p {
+     font-size: 1.1em;
+     margin: 0 0 20px;
+ }
+
+ .therapist-section,
+ .appointment-section {
+     margin-bottom: 50px;
+ }
+
+ .therapist-section h2,
+ .appointment-section h2 {
+     font-size: 2em;
+     margin-bottom: 20px;
+ }
+
+ /* Therapist list and card styles */
+ .therapist-list {
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+     gap: 20px;
+ }
+
+ .therapist-card {
+     background-color: #f7f9fc;
+     border-radius: 10px;
+     width: 250px;
+     padding: 15px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     text-align: center;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     cursor: pointer;
+ }
+
+ .therapist-card:hover {
+     transform: scale(1.05);
+     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+ }
+
+ .therapist-card img {
+     width: 120px;
+     height: 120px;
+     object-fit: cover;
+     border-radius: 50%;
+     margin-bottom: 15px;
+ }
+
+ .therapist-card p {
+     font-size: 1.1em;
+     margin: 10px 0;
+ }
+
+ .therapist-card a {
+     color: #4c8bf5;
+     text-decoration: none;
+     font-weight: bold;
+ }
+
+ .therapist-card a:hover {
+     text-decoration: underline;
+ }
+
+ /* Appointment section */
+ .appointment-form {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 15px;
+ }
+
+ .appointment-form button {
+     background-color: #4c8bf5;
+     color: white;
+     padding: 15px 30px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 1.1em;
+     transition: background-color 0.3s;
+ }
+
+ .appointment-form button:hover {
+     background-color: #3a6cdb;
+ }
+
+ /* Popup Overlay for Therapist Profile */
+ .popup-overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.7);
+     display: none;
+     justify-content: center;
+     align-items: center;
+     z-index: 10000;
+     opacity: 0;
+     transition: opacity 0.5s ease;
+ }
+
+ .popup-overlay.active {
+     display: flex;
+     opacity: 1;
+ }
+
+ .popup-content {
+     background-color: white;
+     padding: 30px;
+     width: 50%;
+     border-radius: 10px;
+     text-align: center;
+     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+     transform: translateY(-50px);
+     transition: transform 0.5s ease;
+ }
+
+ .popup-content.active {
+     transform: translateY(0);
+ }
+
+ .popup-content img {
+     width: 120px;
+     height: 120px;
+     border-radius: 50%;
+     margin-bottom: 20px;
+ }
+
+ .popup-content p {
+     font-size: 1.2em;
+ }
+
+ .close-btn,
+ .chat-btn {
+     padding: 10px 20px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ .close-btn {
+     background-color: #ff4c4c;
+     color: white;
+ }
+
+ .close-btn:hover {
+     background-color: #ff1c1c;
+ }
+
+ .chat-btn {
+     background-color: #4c8bf5;
+     color: white;
+     margin-right: 10px;
+ }
+
+ .chat-btn:hover {
+     background-color: #3a6cdb;
+ }
+
+ /* Animations */
+ @keyframes fadeInSlideDown {
+     0% {
+         opacity: 0;
+         transform: translateY(-20px);
+     }
+
+     100% {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ /* Appointment Section */
+ .appointment-container {
+     max-width: 1200px;
+     margin: 100px auto 50px;
+     background-color: white;
+     padding: 20px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     border-radius: 10px;
+ }
+
+ .appointment-container h1 {
+     text-align: center;
+     margin-bottom: 20px;
+ }
+
+ /* Calendar Section */
+ .calendar-container {
+     display: flex;
+     justify-content: space-between;
+ }
+
+ /* Booking Section */
+ .booking-section {
+     background-color: #f9f9f9;
+     padding: 20px;
+     width: 45%;
+     border-radius: 10px;
+ }
+
+ .booking-section h2 {
+     margin-bottom: 15px;
+ }
+
+ .booking-form {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .booking-form label {
+     margin-bottom: 10px;
+     font-weight: bold;
+ }
+
+ .booking-form input,
+ .booking-form select {
+     padding: 10px;
+     margin-bottom: 15px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+
+ .booking-form button {
+     padding: 10px;
+     background-color: #4c8bf5;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ .booking-form button:hover {
+     background-color: #3a6cdb;
+ }
+
+ /* Upcoming Sessions */
+ .upcoming-sessions {
+     margin-top: 30px;
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .session-preview {
+     flex: 1;
+     padding: 20px;
+     background-color: #f4f4f4;
+     border-radius: 10px;
+     text-align: center;
+ }
+
+ .session-preview h3 {
+     margin-bottom: 15px;
+ }
+
+ .session-preview p {
+     margin-bottom: 10px;
+ }
+
+ .session-preview button {
+     padding: 10px 15px;
+     background-color: #4c8bf5;
+     color: white;
+     border: none;
+     border-radius: 5px;
+ }
+
+ .session-preview button:hover {
+     background-color: #3a6cdb;
+ }
+
+ /* Popup Overlay */
+ .overlay {
+     display: none;
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: rgba(0, 0, 0, 0.7);
+     justify-content: center;
+     align-items: center;
+     z-index: 2000;
+ }
+
+ .overlay-content {
+     background: white;
+     padding: 20px;
+     border-radius: 10px;
+     text-align: center;
+     max-width: 500px;
+     width: 100%;
+ }
+
+ .overlay-content h3 {
+     margin-bottom: 15px;
+ }
+
+ .close-overlay {
+     background-color: #ff4d4d;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     padding: 10px;
+     cursor: pointer;
+ }
+
+ /* Responsive */
+ @media screen and (max-width: 768px) {
+     .calendar-container {
+         flex-direction: column;
+     }
+
+     .booking-section {
+         width: 100%;
+         margin-bottom: 20px;
+     }
+
+     .upcoming-sessions {
+         flex-direction: column;
+     }
+
+     .session-preview {
+         margin-bottom: 20px;
+     }
+ }

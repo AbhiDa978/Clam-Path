@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Therapist</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="logo.png" alt="Calm Path Logo">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="therapist.html" class="active">Therapist Matching</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Chat Section -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <div>
+                <img src="therapist1.jpg" alt="Therapist Profile Picture">
+            </div>
+            <div class="chat-header-icons" style="display: flex; align-items: center; width: 100%;">
+                <h2 id="chat-title" style="flex-grow: 1; text-align: center;">Therapist</h2> 
+                <a id="call-btn">📞</a>
+                <a id="video-call-btn">📹</a>
+                <a id="info-btn">ℹ️</a>
+            </div>
+        </div>
+        
+
+        <div class="chat-messages">
+            <div class="chat-bubble therapist-message">Hello, how can I help you today?</div>
+            <div class="chat-bubble user-message">I would like to discuss my recent stress issues.</div>
+            <div class="chat-bubble therapist-message">I'm here to help. Let's explore what's going on.</div>
+        </div>
+
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" placeholder="Type your message...">
+            <button class="send-button">Send</button>
+        </div>
+
+        <div class="more-therapists">
+            <a href="appointment.html" class="book-appointment">Book an Appointment</a>
+        </div>
+    </div>
+
+    <!-- Popup for Call -->
+    <div id="call-popup" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Calling Therapist</h3>
+            <p>Connecting to the therapist...</p>
+            <button class="close-popup" onclick="closePopup('call-popup')">Close</button>
+        </div>
+    </div>
+
+    <!-- Popup for Video Call -->
+    <div id="video-call-popup" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Video Call</h3>
+            <p>Starting video call...</p>
+            <button class="close-popup" onclick="closePopup('video-call-popup')">Close</button>
+        </div>
+    </div>
+
+    <!-- Popup for Info -->
+    <div id="info-popup" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Therapist Info</h3>
+            <p>This is Therapist 1, specialized in cognitive behavioral therapy.</p>
+            <button class="close-popup" onclick="closePopup('info-popup')">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <strong>Contact Info</strong><br>
+                Kathmandu, Nepal<br>
+                Phone: +977-1234567890<br>
+                Email: info@calmpath.com
+            </div>
+            <div>
+                <strong>Social Media Links</strong><br><br>
+                <a href="https://facebook.com" target="_blank">
+                    <img src="images/f.png" alt="Facebook" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://instagram.com" target="_blank">
+                    <img src="images/i.png" alt="Instagram" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://x.com" target="_blank">
+                    <img src="images/t.png" alt="Twitter" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://youtube.com" target="_blank">
+                    <img src="images/y.png" alt="YouTube" style="width: 30px; height: 30px;">
+                </a>
+            </div>
+            
+            <div>
+                <strong>Privacy Policy</strong><br><br>
+                &copy; 2024 Calm Path.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.getElementById('chat-title');
+            title.innerText = 'Therapist'; 
+            const sendButton = document.querySelector('.send-button');
+            const chatInput = document.querySelector('.chat-input');
+            const chatMessages = document.querySelector('.chat-messages');
+
+            // Send message function
+            sendButton.addEventListener('click', function() {
+                const userMessage = chatInput.value;
+                if (userMessage) {
+                    addMessage(userMessage, 'user-message');
+                    chatInput.value = '';
+                    autoRespond(userMessage);
+                }
+            });
+
+            // Auto response function
+            function autoRespond(userMessage) {
+                setTimeout(() => {
+                    let response = "I'm here to help!";
+                    if (userMessage.toLowerCase().includes("book")) {
+                        response = "You can book an appointment on the website.";
+                    } else if (userMessage.toLowerCase().includes("stress")) {
+                        response = "It's great that you're seeking help for your stress.";
+                    } else if (userMessage.toLowerCase().includes("appointment")) {
+                        response = "Feel free to schedule an appointment at your convenience.";
+                    }
+
+                    addMessage(response, 'therapist-message');
+                }, 1000);
+            }
+
+            // Add message to chat
+            function addMessage(message, className) {
+                const messageBubble = document.createElement('div');
+                messageBubble.classList.add('chat-bubble', className);
+                messageBubble.innerText = message;
+                chatMessages.appendChild(messageBubble);
+                chatMessages.scrollTop = chatMessages.scrollHeight; 
+            }
+
+            // Popup functions
+            const callBtn = document.getElementById('call-btn');
+            const videoCallBtn = document.getElementById('video-call-btn');
+            const infoBtn = document.getElementById('info-btn');
+
+            callBtn.addEventListener('click', function() {
+                openPopup('call-popup');
+            });
+
+            videoCallBtn.addEventListener('click', function() {
+                openPopup('video-call-popup');
+            });
+
+            infoBtn.addEventListener('click', function() {
+                openPopup('info-popup');
+            });
+        });
+
+        // Open popup
+        function openPopup(popupId) {
+            document.getElementById(popupId).style.display = 'flex';
+        }
+
+        // Close popup
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

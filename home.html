@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calm Path - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="logo.png" alt="Calm Path Logo">
+        <nav>
+            <a href="home.html" class="active">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="therapist.html">Therapist Matching</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Spacer below header -->
+    <div class="spacer"></div>
+
+    <!-- Main Content -->
+    <div style="padding-top: 50px;"> 
+        <div class="banner" style="background-image: url('images/banner4.jpeg'); background-size: cover; background-position: center; height: 400px; color: black; display: flex; align-items: center; justify-content: center;">
+        </div>
+
+        <!-- Spacer below banner -->
+        <div class="spacer"></div>
+
+        <div class="content-section" id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to Calm Path, where your journey towards mental well-being begins. Our goal is to provide comprehensive support for mental health by connecting you with professionals, offering resources, and sharing stories of hope and recovery. Discover our services and take the first step towards a healthier, happier life.</p>
+            <img src="images/Introduction.png" alt="Introduction Image">
+        </div>
+
+        <div class="content-section facts" id="facts">
+            <div>
+                <h3>Mental Health Facts</h3>
+                <p>1 in 5 adults experience mental health issues each year. It is important to recognize the signs and seek help early. Calm Path provides resources to understand and manage your mental health better.</p>
+                <img src="images/facts.jpeg" alt="Mental Health Facts">
+            </div>
+            <div>
+                <h3>Common Disorders</h3>
+                <p>Conditions such as anxiety, depression, and PTSD are more common than you think. Our resources offer guidance on coping strategies and treatment options for these and other disorders.</p>
+                <img src="images/disorder.jpeg" alt="Common Disorders">
+            </div>
+        </div>
+
+        <div class="content-section services" id="services">
+            <div>
+                <h3>Our Services</h3>
+                <p>We offer online therapy sessions, self-help guides, and interactive tools to support your mental health journey. Our expert therapists are here to listen and help you overcome challenges.</p>
+                <img src="images/service.jpg" alt="Our Services">
+            </div>
+            <div>
+                <h3>Support Groups</h3>
+                <p>Join our support groups where you can share experiences and learn from others facing similar challenges. Together, we can create a supportive community.</p>
+                <img src="images/support Medium.jpeg" alt="Support Groups">
+            </div>
+        </div>
+
+        <div class="content-section success" id="success">
+            <div>
+                <h3>Success Stories</h3>
+                <p>Hear from those who found peace and recovery through Calm Path. These inspiring stories show that mental health recovery is possible with the right support.</p>
+                <img src="images/success.jpg" alt="Success Stories">
+            </div>
+            <div>
+                <h3>Client Testimonials</h3>
+                <p>Read feedback from our clients who have benefited from our services. Their words motivate us to keep providing the best mental health support possible.</p>
+                <img src="images/client.jpeg" alt="Client Testimonials">
+            </div>
+        </div>
+    </div>
+
+     <!-- Footer -->
+     <footer>
+        <div class="footer-content">
+            <div>
+                <strong>Contact Info</strong><br>
+                Kathmandu, Nepal<br>
+                Phone: +977-1234567890<br>
+                Email: info@calmpath.com
+            </div>
+            <div>
+                <strong>Social Media Links</strong><br><br>
+                <a href="https://facebook.com" target="_blank">
+                    <img src="images/f.png" alt="Facebook" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://instagram.com" target="_blank">
+                    <img src="images/i.png" alt="Instagram" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://x.com" target="_blank">
+                    <img src="images/t.png" alt="Twitter" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://youtube.com" target="_blank">
+                    <img src="images/y.png" alt="YouTube" style="width: 30px; height: 30px;">
+                </a>
+            </div>
+            
+            <div>
+                <strong>Privacy Policy</strong><br><br>
+                &copy; 2024 Calm Path.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">↑ Back to Top</button>
+
+    <script>
+        // Show or hide the back to top button
+        window.onscroll = function() {
+            const button = document.getElementById("backToTop");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        // Smooth scroll to top
+        document.getElementById("backToTop").onclick = function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+
+        // Fade-in effect for content sections
+        window.onload = function() {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.opacity = 1; 
+                section.style.transform = 'translateY(0)'; 
+            });
+        };
+    </script>
+</body>
+</html>

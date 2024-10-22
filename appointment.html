@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="style.css">
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="logo.png" alt="Calm Path Logo">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="therapist.html">Therapist Matching</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Appointment Section -->
+    <div class="appointment-container">
+        <h1>Book an Appointment</h1>
+
+        <div class="calendar-container">
+            <!-- FullCalendar Section -->
+            <div id='calendar' style="width: 50%;"></div>
+
+            <!-- Booking Section -->
+            <div class="booking-section">
+                <h2>Choose Appointment Details</h2>
+                <form class="booking-form" id="appointmentForm">
+                    <label for="therapist">Therapist</label>
+                    <select id="therapist" required>
+                        <option value="Therapist 1">Therapist 1</option>
+                        <option value="Therapist 2">Therapist 2</option>
+                    </select>
+
+                    <label for="session">Session Type</label>
+                    <select id="session" required>
+                        <option value="Cognitive Therapy">Cognitive Therapy</option>
+                        <option value="Behavioral Therapy">Behavioral Therapy</option>
+                    </select>
+
+                    <label for="date">Choose Date</label>
+                    <input type="date" id="date" required>
+
+                    <label for="time">Choose Time</label>
+                    <input type="time" id="time" required>
+
+                    <label for="agenda">Agenda/Reason</label>
+                    <input type="text" id="agenda" placeholder="Enter reason for appointment" required>
+
+                    <button type="submit">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Upcoming Sessions Section -->
+        <div class="upcoming-sessions">
+            <div class="session-preview" id="session1">
+                <h3>Upcoming Session 1</h3>
+                <p id="session1-therapist">Therapist: None</p>
+                <p id="session1-date">Date: None</p>
+                <button id="joinNowBtn">Join Now</button>
+            </div>
+            <div class="session-preview" id="session2">
+                <h3>Upcoming Session 2</h3>
+                <p id="session2-therapist">Therapist: None</p>
+                <p id="session2-date">Date: None</p>
+                <button id="joinNowBtn2">Join Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Overlay -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-content">
+            <h3>Session Details</h3>
+            <p id="overlay-details"></p>
+            <button class="close-overlay" id="closeOverlay">Close</button>
+        </div>
+    </div>
+     <!-- Footer -->
+     <footer>
+        <div class="footer-content">
+            <div>
+                <strong>Contact Info</strong><br>
+                Kathmandu, Nepal<br>
+                Phone: +977-1234567890<br>
+                Email: info@calmpath.com
+            </div>
+            <div>
+                <strong>Social Media Links</strong><br><br>
+                <a href="https://facebook.com" target="_blank">
+                    <img src="images/f.png" alt="Facebook" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://instagram.com" target="_blank">
+                    <img src="images/i.png" alt="Instagram" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://x.com" target="_blank">
+                    <img src="images/t.png" alt="Twitter" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://youtube.com" target="_blank">
+                    <img src="images/y.png" alt="YouTube" style="width: 30px; height: 30px;">
+                </a>
+            </div>
+            
+            <div>
+                <strong>Privacy Policy</strong><br><br>
+                &copy; 2024 Calm Path.
+            </div>
+        </div>
+    </footer>
+
+
+<script>
+        $(document).ready(function() {
+            // Initialize the calendar
+            $('#calendar').fullCalendar({
+                selectable: true,
+                select: function(start, end) {
+                    $('#date').val(moment(start).format('YYYY-MM-DD'));
+                    $('#calendar').fullCalendar('unselect'); 
+                }
+            });
+
+            // Booking Appointment Functionality
+            document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const therapist = document.getElementById('therapist').value;
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+                const agenda = document.getElementById('agenda').value;
+
+                // Update the session previews dynamically
+                document.getElementById('session1-therapist').textContent = `Therapist: ${therapist}`;
+                document.getElementById('session1-date').textContent = `Date: ${date} at ${time}`;
+
+                // Unselect the calendar selection before showing the overlay
+                $('#calendar').fullCalendar('unselect'); 
+
+                // Show the overlay with session details
+                document.getElementById('overlay-details').textContent = `You have booked an appointment with ${therapist} on ${date} at ${time}. Agenda: ${agenda}`;
+                document.getElementById('overlay').style.display = 'flex';
+
+                // Add event to calendar
+                $('#calendar').fullCalendar('renderEvent', {
+                    title: `${therapist} - ${agenda}`,
+                    start: moment(date + ' ' + time),
+                    allDay: false
+                });
+
+                // Reset the form
+                this.reset();
+            });
+
+            // Close Overlay
+            document.getElementById('closeOverlay').addEventListener('click', function() {
+                document.getElementById('overlay').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

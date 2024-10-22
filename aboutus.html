@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calm Path - About Us</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="logo.png" alt="Calm Path Logo">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutus.html" class="active">About Us</a>
+            <a href="therapist.html">Therapist Matching</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Spacer below header -->
+    <div class="spacer"></div>
+
+    <!-- Main Content -->
+    <div class="main-content" style="padding-top: 60px;">
+        <!-- Slideshow Section -->
+        <div class="slideshow">
+            <img src="images/1.jpeg" alt="Mission Image 1" class="active">
+            <img src="images/2.jpeg" alt="Mission Image 2">
+            <img src="images/3.jpeg" alt="Mission Image 3">
+            <img src="images/banner5.jpeg" alt="Mission Image 4">
+            <img src="images/4.jpeg" alt="Mission Image 5">
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+
+        <!-- Brief Description of Organization's Mission -->
+        <div class="mission">
+            <h2>Our Mission</h2>
+            <p>At Calm Path, our mission is to provide mental health support to those in need by connecting individuals with qualified therapists, offering educational resources, and promoting mental wellness for all.</p>
+        </div>
+
+        <!-- Overview Section -->
+        <div class="overview">
+            <h2>Understanding Mental Health</h2>
+            <p>Mental health is crucial to our overall well-being. It influences how we think, feel, and act in our daily lives. It also affects our ability to handle stress, relate to others, and make choices. At Calm Path, we believe that everyone deserves access to mental health resources and professional support.</p>
+            <p>Our services aim to address various mental health issues, including anxiety, depression, stress, and more, by providing a platform that connects individuals with experienced therapists.</p>
+        </div>
+
+        <!-- Team Members Section -->
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <p>Our dedicated team of professionals is here to guide you on your journey towards mental wellness.</p>
+            <div class="team-member">
+                <img src="team1.jpg" alt="John Doe">
+                <h3>John Doe</h3>
+                <p>Role: Lead Therapist</p>
+                <p>Bio: John has over 10 years of experience in therapy.</p>
+            </div>
+            <div class="team-member">
+                <img src="team2.jpg" alt="Jane Smith">
+                <h3>Jane Smith</h3>
+                <p>Role: Clinical Psychologist</p>
+                <p>Bio: Jane specializes in cognitive behavioral therapy.</p>
+            </div>
+            <div class="team-member">
+                <img src="team3.jpg" alt="Emily Johnson">
+                <h3>Emily Johnson</h3>
+                <p>Role: Counselor</p>
+                <p>Bio: Emily is passionate about helping individuals find their paths.</p>
+            </div>
+            <div class="team-member">
+                <img src="team4.jpg" alt="Michael Brown">
+                <h3>Michael Brown</h3>
+                <p>Role: Support Specialist</p>
+                <p>Bio: Michael has a background in social work and community outreach.</p>
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop" onclick="scrollToTop()">Back to Top</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <strong>Contact Info</strong><br>
+                Kathmandu, Nepal<br>
+                Phone: +977-1234567890<br>
+                Email: info@calmpath.com
+            </div>
+            <div>
+                <strong>Social Media Links</strong><br><br>
+                <a href="https://facebook.com" target="_blank">
+                    <img src="images/f.png" alt="Facebook" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://instagram.com" target="_blank">
+                    <img src="images/i.png" alt="Instagram" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://x.com" target="_blank">
+                    <img src="images/t.png" alt="Twitter" style="width: 30px; height: 30px;">
+                </a>
+                |
+                <a href="https://youtube.com" target="_blank">
+                    <img src="images/y.png" alt="YouTube" style="width: 30px; height: 30px;">
+                </a>
+            </div>
+            
+            <div>
+                <strong>Privacy Policy</strong><br><br>
+                &copy; 2024 Calm Path.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for slideshow -->
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.querySelectorAll('.slideshow img');
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active'); 
+                if (index === slideIndex) {
+                    slide.classList.add('active'); 
+                }
+            });
+            slideIndex = (slideIndex + 1) % slides.length; 
+            setTimeout(showSlides, 3000); 
+        }
+
+        function changeSlide(n) {
+            slideIndex = (slideIndex + n + document.querySelectorAll('.slideshow img').length) % document.querySelectorAll('.slideshow img').length;
+            showSlides();
+        }
+
+        // Back to top functionality
+        window.onscroll = function() {
+            const button = document.getElementById('backToTop');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

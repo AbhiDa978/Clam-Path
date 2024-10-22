@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   <!-- Header -->
+   <header>
+    <img src="logo.png" alt="Calm Path Logo">
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="therapist.html">Therapist Matching</a>
+        <a href="contactus.html" class="active">Contact Us</a>
+        <a href="login.html">Logout</a>
+    </nav>
+</header>
+
+
+    <!-- Main Contact Section -->
+    <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="tel" id="phone" placeholder="Your Phone Number" required>
+                <textarea id="message" rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="contact-details">
+            <h2>Get in Touch</h2>
+            <p><strong>Phone:</strong> +977-9999999999</p>
+            <p><strong>Email:</strong> contact@calmpath.com</p>
+            <p><strong>Location:</strong> Kathmandu, Nepal</p>
+            <p><strong>Business Hours:</strong> Sun - Fri, 9:00 AM - 6:00 PM</p>
+
+            <!-- OpenStreetMap -->
+            <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=85.3125%2C27.7017%2C85.3359%2C27.7316&amp;layer=mapnik"
+                allowfullscreen>
+            </iframe>
+            <small><a href="https://www.openstreetmap.org/?mlat=27.7172&amp;mlon=85.3240#map=14/27.7172/85.3240" target="_blank">View Larger Map</a></small>
+        </div>
+    </div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div>
+            <strong>Contact Info</strong><br>
+            Kathmandu, Nepal<br>
+            Phone: +977-1234567890<br>
+            Email: info@calmpath.com
+        </div>
+        <div>
+            <strong>Social Media Links</strong><br><br>
+            <a href="https://facebook.com" target="_blank">
+                <img src="images/f.png" alt="Facebook" style="width: 30px; height: 30px;">
+            </a>
+            |
+            <a href="https://instagram.com" target="_blank">
+                <img src="images/i.png" alt="Instagram" style="width: 30px; height: 30px;">
+            </a>
+            |
+            <a href="https://x.com" target="_blank">
+                <img src="images/t.png" alt="Twitter" style="width: 30px; height: 30px;">
+            </a>
+            |
+            <a href="https://youtube.com" target="_blank">
+                <img src="images/y.png" alt="YouTube" style="width: 30px; height: 30px;">
+            </a>
+        </div>
+        
+        <div>
+            <strong>Privacy Policy</strong><br><br>
+            &copy; 2024 Calm Path.
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Form submission event listener
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Simulate sending the message
+            alert(`Thank you, ${name}! Your message has been sent successfully.`);
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
